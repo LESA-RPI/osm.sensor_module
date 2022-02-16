@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # For installing WiringPi for the I2C interface
 
 # Check for git, and purge old version of wiringpi
