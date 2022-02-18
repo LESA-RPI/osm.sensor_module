@@ -1,19 +1,30 @@
 # OSM.sensor_module
-<br/>
 
-## Color Sensor `TCS34725`
+## Introduction
+
+## File Structure
+__*install.sh*__
+    This is the installation bash file for `WiringPi`  
+__*TCS34725*__
+    Folder for information of TCS34725 color sensor  
+
+### Color Sensor `TCS34725`
 *-include in folder TCS34725*
 
-### Introduction
+#### Introduction
 This is a section for implementation codes for color sensor `TCS34725`  
 The code is fully `C++` and uses `WiringPi` for I2C interface access
 
-### File Structure
-__*install.sh*__  
-    This is the installation bash file for `WiringPi`  
-
-
-### Implementation Guides
-Following is the process of how to use the codes in this repository:
+#### Implementation Guides
+Following is the process of how to use the codes in this section:
 - Download the whole repository to the system.
-- Use `install.sh` to setup `WiringPi` on the system, the output on the terminal should be the version of `WiringPi` and the pins map of current board if everything goes right.
+- Use command `chmod +x install.sh` to make shell file executable.
+- Run `install.sh` to setup `WiringPi` on the system, the output on the terminal should be the version of `WiringPi` and the pins map of current board if everything goes right.
+- Compile `TCS34725_testcode.cpp` using command `g++ TCS34725_testcode.cpp -o TCS34725_show.exe -l wiringPi`
+- Run `TCS34725_show.exe`
+
+#### Modification Note
+Inside the main function of `TCS34725_testcode.cpp`:
+- I2C address and enbale register settings can be changed in the `User Settings` section
+- Any changes for register data could be add to `Setup the sensor` section
+- How to read, process, and output color data codes will be added to `Brief Show case` section
