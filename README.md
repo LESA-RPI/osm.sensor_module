@@ -7,6 +7,17 @@ __*install.sh*__
     This is the installation bash file for `WiringPi`  
 __*TCS34725*__
     Folder for information of TCS34725 color sensor  
+__*TMD37253*__
+    Folder for information of TMD37253 color sensor  
+
+### Color Sensor `TMD37253`
+*-include in folder TMD37253*
+
+#### Introduction
+
+#### Implementation Guides
+
+#### Modification Note
 
 ### Color Sensor `TCS34725`
 *-include in folder TCS34725*
