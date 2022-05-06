@@ -9,6 +9,8 @@ __*TCS34725*__
     Folder for information of TCS34725 color sensor  
 __*TMD37253*__
     Folder for information of TMD37253 color sensor  
+__*tools*__
+    Folder for some helpful tools used in development  
 
 ### Color Sensor `TMD37253`
 *-include in folder TMD37253*
