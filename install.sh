@@ -8,7 +8,6 @@ sudo apt-get purge wiringpi
 hash -r
 
 # Install at desktop for easy access
-cd ~/Desktop
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi
 git pull origin
