@@ -5,3 +5,6 @@
 
 ## Compiling
 Use command `gcc *.c -o *.o -lbluetooth`, replace `*` with document names
+
+### Note
+- Useful tool: `sudo hciconfig -h` for hciconfig help
