@@ -3,6 +3,9 @@
  * the initialization in order to keep track of all the register value of the sensor. get_optics_data is used at 
  * every integration cycle to get the raw color values.
  * 
+ * Note:
+ * - Detailed description for functions are in the source code file.
+ * 
  * Author: You Wu
  * Date: 07/26/2022
  */

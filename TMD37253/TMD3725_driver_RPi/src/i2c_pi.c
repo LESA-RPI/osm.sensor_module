@@ -11,6 +11,7 @@
  *
  * Note:
  * - For this specific driver, this i2c module only support read and write byte from and to the register.
+ * - Detailed description for functions are in the source code file.
  *
  * Original work: WiringPi
  * Modified by: You Wu
@@ -24,6 +25,17 @@
 #include "../include/i2c_pi.h"      // include the header
 
 int i2c_smbus_access(int fd, char rw, uint8_t command, int size, union i2c_smbus_data *data) {
+    /*
+     * FUNCTION: the base function that use ioctl function to transfer data on the i2c interface
+     * ---------
+     * INPUT: fd - linux file descriptor
+     *        rw - read/write status
+     *        command - register number to access
+     *        size - size of data (byte in our driver)
+     *        data - communication data type
+     * RETURN: 0 - success
+     *         -1 - error
+     */
     
     struct i2c_smbus_ioctl_data args;
 
@@ -35,8 +47,15 @@ int i2c_smbus_access(int fd, char rw, uint8_t command, int size, union i2c_smbus
     return ioctl (fd, I2C_SMBUS, &args);
 }
 
-/* helper function for I2CSetup() */
 int I2CSetupInterface(const char* device, const int i2cID) {
+    /*
+     * FUNCTION: helper function for I2CSetup()
+     * ---------
+     * INPUT: device - the directory for i2c module files, varies for different RPi models
+     *        i2cID - the i2c address for device
+     * RETURN: fd - on success, file descriptor of the device
+     *         -1 - error
+     */
     
     int fd;
 
@@ -53,16 +72,33 @@ int I2CSetupInterface(const char* device, const int i2cID) {
     return fd;
 }
 
-/* return the file descriptor that i2c communication used */
 int I2CSetup(const int i2cID) {
+    /*
+     * FUNCTION: Setup the i2c device and return the file descriptor of that device
+     * ---------
+     * INPUT: i2cID - the i2c address for device
+     * RETURN: fd - on success, file descriptor of the device
+     *         -1 - error
+     */
 
     const char* device;
-    device = "/dev/i2c-1";          // Here specify the i2c module that Rpi used, can be modified
+    if (RPi_DEVICE_TYPE == 1) {
+        device = "/dev/i2c-1";          // Here specify the i2c module that Rpi used, can be modified by the RPi_DEVICE_TYPE in header
+    }
+    else {device = "/dev/i2c-0";}
 
     return I2CSetupInterface(device, i2cID);
 }
 
 int I2CGetreg(int fd, int reg) {
+    /*
+     * FUNCTION: Read the register value in byte form and return the value 
+     * ---------
+     * INPUT: fd - the file descriptor of the i2c device
+     *        reg - the register address that we are reading from
+     * RETURN: value at the register is returned
+     *         -1 - error
+     */
 
     union i2c_smbus_data data;
 
@@ -73,6 +109,15 @@ int I2CGetreg(int fd, int reg) {
 }
 
 int I2CSetreg (int fd, int reg, int value) {
+    /*
+     * FUNCTION: Write value to the specific register 
+     * ---------
+     * INPUT: fd - the file descriptor of the i2c device
+     *        reg - the register address that we are writing to
+     *        value - the value that is written to the register
+     * RETURN: 0 - success
+     *         -1 - error
+     */
   
     union i2c_smbus_data data;
 

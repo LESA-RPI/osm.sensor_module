@@ -3,7 +3,7 @@
  *
  * Note:
  * - The read and write ability of the register is commented
- * - Details about registers can be checked at the datasheet
+ * - Details about registers can be checked in the datasheet
  *
  * Author: You Wu
  * Date: 07/26/2022

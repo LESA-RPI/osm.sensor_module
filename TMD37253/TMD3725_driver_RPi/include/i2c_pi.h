@@ -11,6 +11,7 @@
  *
  * Note:
  * - For this specific driver, this i2c module only support read and write byte from and to the register.
+ * - Detailed description for functions are in the source code file.
  *
  * Original work: WiringPi
  * Modified by: You Wu
@@ -20,11 +21,13 @@
 #ifndef _I2C_PI_H
 #define _I2C_PI_H
 
-#include <stdint.h>
+#include <stdint.h>                     // for integer types
+
+#define RPi_DEVICE_TYPE         1       // device type indicator (1 for pi zero, etc.)
 
 #define I2C_SLAVE               0x0703
-#define I2C_SMBUS	            0x0720	/* SMBus-level access */
-#define I2C_SMBUS_BLOCK_MAX	    32	/* As specified in SMBus standard */
+#define I2C_SMBUS	              0x0720	// SMBus-level access
+#define I2C_SMBUS_BLOCK_MAX	    32	    // as specified in SMBus standard
 
 #define I2C_SMBUS_READ	        1
 #define I2C_SMBUS_WRITE	        0
