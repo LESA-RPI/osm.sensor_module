@@ -15,5 +15,6 @@
 
 int get_data(int fd, int reginfo[]);
 int get_optics_data(int fd, int color_array[]);
+int get_raw_clear(int fd);
 
 #endif

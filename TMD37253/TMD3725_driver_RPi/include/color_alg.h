@@ -43,5 +43,6 @@ optics_val get_calib_color(int fd, const int reginfo[]);
 optics_val calib_color(int fd, const int colorarray[], const int reginfo[]);
 int combine_color(const int color_array[], int flag);
 void print_color(optics_val color_data);    // From what I learned, const non pointer variable don't need const to init the function
+float power(float base, int power);
 
 #endif

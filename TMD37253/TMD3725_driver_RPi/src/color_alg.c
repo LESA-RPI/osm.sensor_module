@@ -12,7 +12,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <math.h>                   // for pow() function
 #include "../include/color_alg.h"
 #include "../include/data_get.h"
 
@@ -28,7 +27,6 @@ optics_val get_calib_color(int fd, const int reginfo[]) {
 
     int colorarray[9];
     optics_val calibed;
-    int rawr, rawg, rawb, rawc;
 
     if ((get_optics_data(fd, colorarray)) == -1) {
         return calibed;     // if errors occur when reading from register, return empty calibed
@@ -62,7 +60,7 @@ optics_val calib_color(int fd, const int colorarray[], const int reginfo[]) {
     if (reginfo[11] & 0x02) {
         Atime = Atime * 12;                     // account for wlong case
     }
-    Again = pow(2, (reginfo[14] & 0x03) * 2);   // calculate the gain in 1x, 4x, 16x, 64x
+    Again = power(2.0, (reginfo[14] & 0x03) * 2);   // calculate the gain in 1x, 4x, 16x, 64x
     if (!(reginfo[27] & 0x04)) {
         Again = Again/2;                        // account for wider range of gain
     }
@@ -126,4 +124,22 @@ void print_color(const optics_val color_data) {
                                                             color_data.blue, color_data.Lux, color_data.CCT);
 
     return;
+}
+
+float power(float base, int power) {
+    /*
+     * FUNCTION: A simple function to calculate positive power
+     * ---------
+     * INPUT: base - the base number 
+     *        power - a positive number represents the power
+     * RETURN: result - the result of the power
+     */
+
+    float result = 1;
+
+    for (int i=0; i<power; i++) {
+        result = result * base;
+    }
+
+    return result;
 }

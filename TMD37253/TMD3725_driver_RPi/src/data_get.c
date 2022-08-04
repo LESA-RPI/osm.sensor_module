@@ -25,11 +25,11 @@ int get_data(int fd, int reginfo[]) {
      *         -1 - error
      */
 
-    /*Check if the size of registers info array */
-    if (((sizeof(reginfo))/(sizeof(int))) != 35) {
-        printf("Register info array has the wrong size.");
-        return -1;
-    }
+    // /*Check if the size of registers info array */
+    // if (((sizeof(reginfo))/(sizeof(int))) != 35) {
+    //     printf("Register info array has the wrong size.");
+    //     return -1;
+    // }
 
     /*Enable to PILT*/
     for (int i=0; i<9; i++) {
@@ -84,12 +84,6 @@ int get_optics_data(int fd, int color_array[]) {
      *         -1 - error
      */
 
-    /* Check if the size of color array is 9 */
-    if (((sizeof(color_array))/(sizeof(int))) != 9) {
-        printf("Register info array has the wrong size.");
-        return -1;
-    }
-
     for (int i=0; i<9; i++) {
         if ((color_array[i] = I2CGetreg(fd, CDATAL_ADDR+i)) == -1) {
             printf("Error happens when reading color value.");
@@ -98,4 +92,15 @@ int get_optics_data(int fd, int color_array[]) {
     }
 
     return 0;
+}
+
+int get_raw_clear(int fd) {
+    /*
+     * FUNCTION: Read the raw clear channel value for auto integration time adjustment
+     * ---------
+     * INPUT: fd - the file descriptor of the i2c device
+     * RETURN: the full byte raw clear channel value
+     */
+
+    return ((I2CGetreg(fd, CDATAH_ADDR) << 8) + I2CGetreg(fd, CDATAL_ADDR));
 }
