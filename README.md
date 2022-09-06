@@ -15,6 +15,14 @@ __*tools*__
 
 ---
 
+### Bluetooth communication
+*-include in folder BLE*
+
+#### Introduction
+This is the section for simple bluetooth communication implementation on RPi, there is only point to point communication at this point
+
+---
+
 ### Color Sensor `TCS34725`
 *-include in folder TCS34725*
 
