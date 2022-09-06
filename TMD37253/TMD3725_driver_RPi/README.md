@@ -7,6 +7,7 @@ The driver is developed for AMS color sensor TMD3725 specifically for LESA usage
 - Download the folder `TMD3725_driver_RPi` to the raspberry pi.
 - Write the code that will use this driver, and put the code under `src` folder; or you can directly use the example code already exist in `src` folder.
 - If you are using the example code, just go to the `src` directory and use `make` command to compile; if you are using your own code, `Makefile` under `src` folder needs to be edited first, detailed editing notes are given in the Implementation Note section below.
+- Or you can copy the the header files in include folder and src codes in src folder and implement else where.
 - Enjoy sensing colors.
 
 ## Implementation Note
