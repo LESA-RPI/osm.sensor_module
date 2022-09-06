@@ -46,5 +46,9 @@ This is a section for implementation codes for color sensor `TMD37253`
 The code is fully `c` and uses modified `WiringPi` methods for I2C interface access
 
 #### Implementation Guides
+For this part:
+- `TMD3725_driver_RPi` is the folder that holds a `c` driver that can enable TMD3725 on RPi
+- `TMD3725_testcode.cpp` has a brief example that uses `WiringPi` for TMD3725 implementation, for test purpose
 
 #### Modification Note
+- Detailed notes are in the `README.md` in `TMD3725_driver_RPi`
