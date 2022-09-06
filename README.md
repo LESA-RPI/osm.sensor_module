@@ -1,23 +1,19 @@
 # OSM.sensor_module
 
 ## Introduction
+Codes for the occupancy sensing module that utilizes ToF and color sensor.
 
 ## File Structure
+__*BLE*__
+    Folder for BLE communication on RPi  
 __*TCS34725*__
     Folder for information of TCS34725 color sensor  
 __*TMD37253*__
     Folder for information of TMD37253 color sensor  
 __*tools*__
-    Folder for some helpful tools used in development  
+    Folder for some helpful tools used in development
 
-### Color Sensor `TMD37253`
-*-include in folder TMD37253*
-
-#### Introduction
-
-#### Implementation Guides
-
-#### Modification Note
+---
 
 ### Color Sensor `TCS34725`
 *-include in folder TCS34725*
@@ -39,3 +35,16 @@ Inside the main function of `TCS34725_testcode.cpp`:
 - I2C address and enbale register settings can be changed in the `User Settings` section
 - Any changes for register data could be add to `Setup the sensor` section
 - How to read, process, and output color data codes will be added to `Brief Show case` section
+
+---
+
+### Color Sensor `TMD37253`
+*-include in folder TMD37253*
+
+#### Introduction
+This is a section for implementation codes for color sensor `TMD37253`
+The code is fully `c` and uses modified `WiringPi` methods for I2C interface access
+
+#### Implementation Guides
+
+#### Modification Note
